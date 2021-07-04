@@ -25,7 +25,7 @@ def print_state():
 def x_move():
     global x_o
     while True:
-        x_cord = input('Enter the coordinates: ')
+        x_cord = input('Enter the coordinates: \n请输入坐标: ')
         if input_ok(x_cord):
             break
     if x_o == 0:
@@ -44,13 +44,13 @@ def input_ok(user_input):
         if state[index[user_input]] == '_':
             return True
         else:
-            print('This cell is occupied! Choose another one!')
+            print('This cell is occupied! Choose another one!\n这里已经有棋子啦！请再选一个吧！')
             return False
     else:
         if not user_input.replace(' ', '').isdigit():
-            print('You should enter numbers!')
+            print('You should enter numbers!\n你应该输入数字！')
         else:
-            print('Coordinates should be from 1 to 3!')
+            print('Coordinates should be from 1 to 3!\n坐标必须从1到3！')
         return False
 
 
@@ -100,15 +100,15 @@ def game_state_check():
             o_win = True
     if x_win:
         print_state()
-        print('X wins')
+        print('X wins\nX赢了')
         finish = True
     elif o_win:
         print_state()
-        print('O wins')
+        print('O wins\nO赢了')
         finish = True
     elif '_' not in state:
         print_state()
-        print('Draw')
+        print('Draw\n平局')
         finish = True
     else:
         pass
